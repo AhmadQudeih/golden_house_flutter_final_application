@@ -100,68 +100,126 @@ class _RestaurantState extends State<Restaurant> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
             builder: (BuildContext context) {
-              return Container(
-                height: 325,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.only(left: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+              return Stack(
+                children: [
+                  Container(
+                    height: 332,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                    ),
+                    padding: EdgeInsets.only(
+                        top: 62, bottom: 30, right: 40, left: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
                           children: [
-                            Icon(Icons.abc),
-                            Text('Order with Friends'),
+                            SvgPicture.asset(
+                                'assets/svgIcons/profile-2user.svg'),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Order with Friends',
+                                style: GoogleFonts.cairo(
+                                  color: Color(0xFF292D32),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.08,
+                                  letterSpacing: -0.17,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          // backgroundColor: Colors.white,
-                          ),
+                        Divider(),
+                        Row(
+                          children: [
+                            SvgPicture.asset('assets/svgIcons/heart-add.svg'),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Order with Friends',
+                                style: GoogleFonts.cairo(
+                                  color: Color(0xFF292D32),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.08,
+                                  letterSpacing: -0.17,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(),
+                        Row(
+                          children: [
+                            SvgPicture.asset('assets/svgIcons/send-2.svg'),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Order with Friends',
+                                style: GoogleFonts.cairo(
+                                  color: Color(0xFF292D32),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.08,
+                                  letterSpacing: -0.17,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(),
+                        Row(
+                          children: [
+                            SvgPicture.asset('assets/svgIcons/info-circle.svg'),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Order with Friends',
+                                style: GoogleFonts.cairo(
+                                  color: Color(0xFF292D32),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.08,
+                                  letterSpacing: -0.17,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.abc),
-                          Text('Add to Favourites'),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.abc),
-                          Text('Share to...'),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.abc),
-                          Text('Report Store'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    right: 168,
+                    child:
+                        SvgPicture.asset('assets/svgIcons/Rectangle 1162.svg'),
+                  ),
+                  Positioned(
+                    top: 9,
+                    right: 9,
+                    child: SvgPicture.asset('assets/svgIcons/Icon.svg'),
+                  ),
+                ],
               );
             },
           );
         },
+        child: Image.asset('assets/svgIcons/up-arrow.png'),
+        backgroundColor: Colors.white,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         children: [
           // Expanded(child: showBottomSheet(BuildContext context))

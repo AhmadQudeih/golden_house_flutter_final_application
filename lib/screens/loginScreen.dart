@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -72,7 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: visibil?Color.fromRGBO(244, 115, 158, 1):Color(0x66FDD2E0),
+                        backgroundColor: visibil
+                            ? const Color.fromRGBO(244, 115, 158, 1)
+                            : const Color(0x66FDD2E0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(90),
                         ),
@@ -80,7 +84,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         'Login',
                         style: GoogleFonts.tajawal(
-                          color: visibil?Colors.white:Color.fromRGBO(244, 115, 158, 1),
+                          color: visibil
+                              ? Colors.white
+                              : const Color.fromRGBO(244, 115, 158, 1),
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
                           letterSpacing: -0.17,
@@ -100,7 +106,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: !visibil?Color.fromRGBO(244, 115, 158, 1):Color(0x66FDD2E0),
+                        backgroundColor: !visibil
+                            ? const Color.fromRGBO(244, 115, 158, 1)
+                            : const Color(0x66FDD2E0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(90),
                         ),
@@ -109,7 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Sign Up',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.tajawal(
-                          color: !visibil?Colors.white:Color.fromRGBO(244, 115, 158, 1),
+                          color: !visibil
+                              ? Colors.white
+                              : const Color.fromRGBO(244, 115, 158, 1),
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
                           letterSpacing: -0.17,
@@ -160,7 +170,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.black87),
+                                borderSide:
+                                    const BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               hintText: 'Enter your Email',
@@ -216,7 +227,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.black87),
+                                borderSide:
+                                    const BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               hintText: 'Enter your Password',
@@ -293,7 +305,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.black87),
+                                borderSide:
+                                    const BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               hintText: 'Enter your Name',
@@ -331,16 +344,26 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         Container(
-                          width: 348,
-                          height: 51,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFEFF2F5),
-                            shape: RoundedRectangleBorder(
+                          decoration: BoxDecoration(
+                              color: Color(0xffEFF2F5),
+                              borderRadius: BorderRadius.circular(14)),
+                          child: InternationalPhoneNumberInput(
+                            onInputChanged: (PhoneNumber number) {
+                              print(number.phoneNumber);
+                            },
+                            selectorConfig: const SelectorConfig(
+                              selectorType: PhoneInputSelectorType.DROPDOWN,
+                            ),
+                            ignoreBlank: false,
+                            autoValidateMode: AutovalidateMode.disabled,
+                            selectorTextStyle: const TextStyle(
+                              color: Colors.black,
+                            ),
+                            inputBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(14),
                             ),
-                          ),
-                          child: TextField(
-                            decoration: InputDecoration(
+                            inputDecoration: InputDecoration(
+                              fillColor: Colors.pinkAccent,
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color(0xFFEFF2F5),
@@ -348,7 +371,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.black87),
+                                borderSide:
+                                    const BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               hintText: '000 000 0000',
@@ -364,6 +388,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
+
                   // Create Password --------------------------------------------------------
                   Container(
                     margin: const EdgeInsets.only(top: 26),
@@ -401,7 +426,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: Colors.black87),
+                                borderSide:
+                                    const BorderSide(color: Colors.black87),
                                 borderRadius: BorderRadius.circular(14),
                               ),
                               hintText: 'Enter your Password',
@@ -422,160 +448,166 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-             Stack(
-               children: [
-                 SizedBox(
+            Stack(
+              children: [
+                const SizedBox(
                   height: 300,
                   width: double.infinity,
+                ),
+                // Or Login Using --------------------------------------------------
+                Positioned(
+                  right: 0,
+                  left: 0,
+                  bottom: 250,
+                  child: Row(
+                    children: [
+                      Text(
+                        visibil ? 'Or Login Using :' : 'Or SignUp Using :',
+                        style: GoogleFonts.tajawal(
+                          color: const Color(0xFF6A788A),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: -0.17,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 190,
+                        height: 1,
+                        color: const Color(0xFFD5DEE7),
+                      )
+                    ],
+                  ),
+                ),
+                // Icon Google And Apple And Facebook ------------------------------
+                Positioned(
+                  bottom: 160,
+                  right: 50,
+                  left: 0,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 71,
+                          height: 71,
+                          decoration: const ShapeDecoration(
+                            shape: OvalBorder(
+                              side: BorderSide(
+                                  width: 1.50, color: Color(0xFFD4DDE7)),
+                            ),
+                          ),
+                          margin: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              backgroundColor: Colors.white,
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/svgIcons/icons8-google.svg',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 71,
+                          height: 71,
+                          decoration: const ShapeDecoration(
+                            shape: OvalBorder(
+                              side: BorderSide(
+                                  width: 1.50, color: Color(0xFFD4DDE7)),
+                            ),
+                          ),
+                          margin: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              backgroundColor: Colors.white,
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/svgIcons/icons8-apple.svg',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 71,
+                          height: 71,
+                          decoration: const ShapeDecoration(
+                            shape: OvalBorder(
+                              side: BorderSide(
+                                  width: 1.50, color: Color(0xFFD4DDE7)),
+                            ),
+                          ),
+                          margin: const EdgeInsets.only(right: 20),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              backgroundColor: Colors.white,
+                            ),
+                            child: SvgPicture.asset(
+                              'assets/svgIcons/icons8-facebook.svg',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // Login button ----------------------------------------------------
+                Positioned(
+                  bottom: 40,
+                  right: 0,
+                  left: 0,
+                  child: SizedBox(
+                    height: 64,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFBBE8FB),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            visibil ? 'Login' : 'SignUp',
+                            style: GoogleFonts.tajawal(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              height: 0.06,
+                            ),
+                          ),
+                          const Icon(Icons.arrow_forward_ios_rounded),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-                 // Or Login Using --------------------------------------------------
-                 Positioned(
-                   right: 0,
-                   left: 0,
-                   bottom: 250,
-                   child: Row(
-                     children: [
-                       Text(
-                         'Or Login Using :',
-                         style: GoogleFonts.tajawal(
-                           color: const Color(0xFF6A788A),
-                           fontSize: 17,
-                           fontWeight: FontWeight.w400,
-                           letterSpacing: -0.17,
-                         ),
-                       ),
-                       const SizedBox(width: 10),
-                       Container(
-                         width: 210,
-                         height: 1,
-                         color: const Color(0xFFD5DEE7),
-                       )
-                     ],
-                   ),
-                 ),
-                 // Icon Google And Apple And Facebook ------------------------------
-                 Positioned(
-                   bottom: 160,
-                   right: 50,
-                   left: 0,
-                   child: SizedBox(
-                     width: double.infinity,
-                     child: Row(
-                       children: [
-                         Container(
-                           width: 71,
-                           height: 71,
-                           decoration: const ShapeDecoration(
-                             shape: OvalBorder(
-                               side:
-                               BorderSide(width: 1.50, color: Color(0xFFD4DDE7)),
-                             ),
-                           ),
-                           margin: const EdgeInsets.only(right: 20),
-                           child: ElevatedButton(
-                             onPressed: () {},
-                             style: ElevatedButton.styleFrom(
-                               elevation: 0,
-                               shape: RoundedRectangleBorder(
-                                 borderRadius: BorderRadius.circular(100),
-                               ),
-                               backgroundColor: Colors.white,
-                             ),
-                             child: SvgPicture.asset(
-                               'assets/svgIcons/icons8-google.svg',
-                             ),
-                           ),
-                         ),
-                         Container(
-                           width: 71,
-                           height: 71,
-                           decoration: const ShapeDecoration(
-                             shape: OvalBorder(
-                               side:
-                               BorderSide(width: 1.50, color: Color(0xFFD4DDE7)),
-                             ),
-                           ),
-                           margin: const EdgeInsets.only(right: 20),
-                           child: ElevatedButton(
-                             onPressed: () {},
-                             style: ElevatedButton.styleFrom(
-                               elevation: 0,
-                               shape: RoundedRectangleBorder(
-                                 borderRadius: BorderRadius.circular(100),
-                               ),
-                               backgroundColor: Colors.white,
-                             ),
-                             child: SvgPicture.asset(
-                               'assets/svgIcons/icons8-apple.svg',
-                             ),
-                           ),
-                         ),
-                         Container(
-                           width: 71,
-                           height: 71,
-                           decoration: const ShapeDecoration(
-                             shape: OvalBorder(
-                               side:
-                               BorderSide(width: 1.50, color: Color(0xFFD4DDE7)),
-                             ),
-                           ),
-                           margin: const EdgeInsets.only(right: 20),
-                           child: ElevatedButton(
-                             onPressed: () {},
-                             style: ElevatedButton.styleFrom(
-                               elevation: 0,
-                               shape: RoundedRectangleBorder(
-                                 borderRadius: BorderRadius.circular(100),
-                               ),
-                               backgroundColor: Colors.white,
-                             ),
-                             child: SvgPicture.asset(
-                               'assets/svgIcons/icons8-facebook.svg',
-                             ),
-                           ),
-                         ),
-                       ],
-                     ),
-                   ),
-                 ),
-                 // Login button ----------------------------------------------------
-                 Positioned(
-                   bottom: 35,
-                   right: 0,
-                   left: 0,
-                   child: SizedBox(
-                     height: 64,
-                     child: ElevatedButton(
-                       onPressed: () {},
-                       style: ElevatedButton.styleFrom(
-                         backgroundColor: const Color(0xFFBBE8FB),
-                         elevation: 0,
-                         shape: RoundedRectangleBorder(
-                           borderRadius: BorderRadius.circular(18),
-                         ),
-                       ),
-                       child: Row(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                           Text(
-                             'Login',
-                             style: GoogleFonts.tajawal(
-                               color: Colors.white,
-                               fontSize: 18,
-                               fontWeight: FontWeight.w500,
-                               height: 0.06,
-                             ),
-                           ),
-                           const Icon(Icons.arrow_forward_ios_rounded),
-                         ],
-                       ),
-                     ),
-                   ),
-                 ),
-               ],
-             ),
           ],
-
         ),
       ),
     );

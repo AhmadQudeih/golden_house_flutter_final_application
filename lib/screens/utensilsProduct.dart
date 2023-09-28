@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/utensils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UtensilsProduct extends StatefulWidget {
@@ -25,8 +26,15 @@ class _UtensilsProductState extends State<UtensilsProduct> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Utensils(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.arrow_back_rounded),
                 color: Colors.black,
               ),
               const Spacer(),

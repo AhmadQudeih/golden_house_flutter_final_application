@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/utensils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'categories.dart';
 import 'imagesAssets.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,19 +65,19 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: 'Discover',
             icon: Icon(Icons.explore),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: 'Drivethru',
             icon: Icon(Icons.directions_bus),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: 'Order',
             icon: Icon(Icons.list_alt),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: 'Profile',
             icon: Icon(Icons.account_circle),
           ),
@@ -94,7 +96,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -106,8 +108,8 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: MediaQuery.of(context).size.height*0.85,
-                     padding: EdgeInsets.only(
+                    height: MediaQuery.of(context).size.height * 0.85,
+                    padding: const EdgeInsets.only(
                         top: 62, bottom: 30, right: 40, left: 40),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -121,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -131,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/heart-add.svg'),
@@ -140,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -150,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/send-2.svg'),
@@ -159,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -169,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/info-circle.svg'),
@@ -178,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -214,19 +216,19 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 21),
+            margin: const EdgeInsets.symmetric(horizontal: 21),
             child: Column(
               children: [
                 // App Bar
                 Row(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(right: 12, top: 16),
+                      margin: const EdgeInsets.only(right: 12, top: 16),
                       width: 160,
                       height: 40,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFCE2CF),
+                          backgroundColor: const Color(0xFFFCE2CF),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -241,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                               '32, Kingston Ln.',
                               style: GoogleFonts.tajawal(
                                 fontSize: 13,
-                                color: Color(0xffea985b),
+                                color: const Color(0xffea985b),
                               ),
                             ),
                           ],
@@ -249,12 +251,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 16),
+                      margin: const EdgeInsets.only(top: 16),
                       width: 128,
                       height: 40,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFCE2CF),
+                          backgroundColor: const Color(0xFFFCE2CF),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -269,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                               'Order Now',
                               style: GoogleFonts.tajawal(
                                 fontSize: 13,
-                                color: Color(0xffea985b),
+                                color: const Color(0xffea985b),
                               ),
                             ),
                           ],
@@ -280,12 +282,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // Good Evening Luisa
                 Container(
-                  margin: EdgeInsets.only(top: 30),
+                  margin: const EdgeInsets.only(top: 30),
                   width: double.infinity,
                   child: Text(
                     'Good Evening Luisa',
                     style: GoogleFonts.tajawal(fontSize: 30, shadows: [
-                      Shadow(
+                      const Shadow(
                         offset: Offset(0, 2),
                         blurRadius: 5,
                         color: Colors.grey,
@@ -296,12 +298,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // Search
                 Container(
-                  margin: EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.only(top: 15),
                   child: Container(
                     width: 348,
                     height: 51,
                     decoration: ShapeDecoration(
-                      color: Color(0xFFEFF2F5),
+                      color: const Color(0xFFEFF2F5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -309,24 +311,24 @@ class _HomePageState extends State<HomePage> {
                     child: TextField(
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xFFEFF2F5),
                           ),
                           borderRadius: BorderRadius.circular(14),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black87),
+                          borderSide: const BorderSide(color: Colors.black87),
                           borderRadius: BorderRadius.circular(14),
                         ),
                         hintText: 'Search Food, Restaurants etc.',
                         hintStyle: GoogleFonts.tajawal(
-                          color: Color(0xFFB3BFCB),
+                          color: const Color(0xFFB3BFCB),
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
                           letterSpacing: -0.17,
                         ),
                         prefixIcon: Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: SvgPicture.asset(
                               'assets/svgIcons/search-normal.svg'),
                         ),
@@ -336,7 +338,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // Categories
                 Container(
-                  margin: EdgeInsets.only(top: 26),
+                  margin: const EdgeInsets.only(top: 26),
                   width: double.infinity,
                   child: Text(
                     'Categories',
@@ -347,43 +349,62 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // GridView
                 Container(
-                  margin: EdgeInsets.only(top: 10),
+                  margin: const EdgeInsets.only(top: 10),
                   child: Stack(
                     children: [
                       GridView.builder(
                         shrinkWrap: true,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 19,
-                            mainAxisSpacing: 16),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 19,
+                                mainAxisSpacing: 16),
                         itemCount: 5,
                         itemBuilder: (context, index) {
                           return Container(
                             decoration: BoxDecoration(
-                              color: Color(0xfffdeef3),
+                              color: const Color(0xfffdeef3),
                               borderRadius: BorderRadius.circular(100),
                             ),
-                            child: Container(
-                              margin: EdgeInsets.only(bottom: 10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  ClipRRect(
-                                    child: Image.network(
-                                      store2[index].ImageURl,
-                                      width: 60,
-                                    ),
-                                    borderRadius: BorderRadius.circular(100),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Utensils(),
                                   ),
-                                  SizedBox(height: 10),
-                                  Text(
-                                    store2[index].description,
-                                    style: GoogleFonts.tajawal(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xfffdeef3),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                              ),
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ClipRRect(
+                                      child: Image.network(
+                                        store2[index].ImageURl,
+                                        width: 60,
+                                      ),
+                                      borderRadius: BorderRadius.circular(100),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      store2[index].description,
+                                      style: GoogleFonts.tajawal(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -395,7 +416,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           width: 42,
                           height: 30,
-                          decoration: ShapeDecoration(
+                          decoration: const ShapeDecoration(
                             color: Color(0xFFE9985B),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
@@ -423,16 +444,23 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(
-                                  color: Color(0xff45B8E9), width: 2)),
+                                  color: const Color(0xff45B8E9), width: 2)),
                           child: ClipOval(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Categories(),
+                                  ),
+                                );
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.arrow_forward,
                                     color: Color(0xff45B8E9),
                                   ),
@@ -440,7 +468,7 @@ class _HomePageState extends State<HomePage> {
                                     'See all',
                                     style: GoogleFonts.tajawal(
                                       fontSize: 15,
-                                      color: Color(0xff45B8E9),
+                                      color: const Color(0xff45B8E9),
                                     ),
                                   ),
                                 ],
@@ -455,12 +483,12 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Divider(height: 20),
+          const Divider(height: 20),
           Column(
             children: [
               // Offers Near you
               Container(
-                margin: EdgeInsets.only(top: 24, left: 21),
+                margin: const EdgeInsets.only(top: 24, left: 21),
                 width: double.infinity,
                 child: Text(
                   'Offers Near you',
@@ -472,12 +500,12 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 190,
                 child: ListView.separated(
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(left: 21, top: 16),
+                      margin: const EdgeInsets.only(left: 21, top: 16),
                       width: 300,
                       height: 160,
                       alignment: Alignment.center,
@@ -492,13 +520,13 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return SizedBox(width: 0);
+                    return const SizedBox(width: 0);
                   },
                 ),
               ),
-              Divider(),
+              const Divider(),
               Container(
-                margin: EdgeInsets.only(top: 10, left: 21),
+                margin: const EdgeInsets.only(top: 10, left: 21),
                 width: double.infinity,
                 child: Text(
                   'New & Trending',
@@ -510,7 +538,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 233,
                 child: ListView.separated(
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (context, index) {
@@ -519,7 +547,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(left: 21, top: 16),
+                            margin: const EdgeInsets.only(left: 21, top: 16),
                             width: 200,
                             height: 113,
                             alignment: Alignment.center,
@@ -544,7 +572,7 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                   separatorBuilder: (context, index) {
-                    return SizedBox(width: 0);
+                    return const SizedBox(width: 0);
                   },
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/editAddOn.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MealCollapsed extends StatefulWidget {
@@ -351,7 +352,14 @@ class _MealCollapsedState extends State<MealCollapsed> {
                   margin: const EdgeInsets.symmetric(horizontal: 21),
                   height: 65,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditAddOn(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       elevation: 0,

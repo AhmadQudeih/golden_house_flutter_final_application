@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:golden_house_flutter_final_application/screens/imagesAssets.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantData.dart';
+import 'package:golden_house_flutter_final_application/screens/utensilsProduct.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Utensils extends StatefulWidget {
@@ -56,34 +58,45 @@ class _UtensilsState extends State<Utensils> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: Container(
+          width: 80,
+          margin: EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.arrow_back_rounded),
+                color: Colors.black,
+              ),
+              Spacer(),
+              Text(
+                'Back',
+                style: GoogleFonts.tajawal(
+                  color: Color(0xFF292D32),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  height: 0.08,
+                ),
+              ),
+            ],
+          ),
+        ),
+        leadingWidth: 100,
+      ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 21),
         child: ListView(
           children: [
-            // Back Button
-            Container(
-              width: 80,
-              margin: EdgeInsets.only(top: 30, right: 260),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back),
-                    color: Colors.black,
-                  ),
-                  Spacer(),
-                  Text(
-                    'Back',
-                    style: GoogleFonts.tajawal(
-                      color: Color(0xFF292D32),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      height: 0.08,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             // All Categories
             Container(
               margin: EdgeInsets.only(top: 45),
@@ -354,7 +367,14 @@ class _UtensilsState extends State<Utensils> {
                   right: 0,
                   top: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UtensilsProduct(),
+                        ),
+                      );
+                    },
                     child: Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       child: Column(

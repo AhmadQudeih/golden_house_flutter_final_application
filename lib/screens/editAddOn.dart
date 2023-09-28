@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EditAddOn extends StatefulWidget {
@@ -23,9 +24,19 @@ class _EditAddOnState extends State<EditAddOn> {
           children: [
             Container(
               margin: EdgeInsets.only(left: 20),
-              child: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.black,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MealCollapsed(),
+                    ),
+                  );
+                },
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: Colors.black,
+                ),
               ),
             ),
             Spacer(),
@@ -40,7 +51,7 @@ class _EditAddOnState extends State<EditAddOn> {
             )
           ],
         ),
-        leadingWidth: 190,
+        leadingWidth: 210,
       ),
       body: Column(
         children: [
@@ -242,7 +253,14 @@ class _EditAddOnState extends State<EditAddOn> {
           Container(
             margin: EdgeInsets.only(bottom: 20, left: 21, right: 21),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MealCollapsed(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(

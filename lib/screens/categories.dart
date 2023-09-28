@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'homePage.dart';
 import 'imagesAssets.dart';
 
 class Categories extends StatefulWidget {
@@ -63,34 +64,45 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: Container(
+          width: 80,
+          margin: const EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.arrow_back),
+                color: Colors.black,
+              ),
+              const Spacer(),
+              Text(
+                'Back',
+                style: GoogleFonts.tajawal(
+                  color: const Color(0xFF292D32),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  height: 0.08,
+                ),
+              ),
+            ],
+          ),
+        ),
+        leadingWidth: 100,
+      ),
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 21),
         child: ListView(
           children: [
-            // Back Button
-            Container(
-              width: 80,
-              margin: EdgeInsets.only(top: 30, right: 260),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back),
-                    color: Colors.black,
-                  ),
-                  Spacer(),
-                  Text(
-                    'Back',
-                    style: GoogleFonts.tajawal(
-                      color: Color(0xFF292D32),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      height: 0.08,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             // All Categories
             Container(
               margin: EdgeInsets.only(top: 45),

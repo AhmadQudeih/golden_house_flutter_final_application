@@ -1,7 +1,9 @@
 import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:flutter/material.dart';
+import 'package:golden_house_flutter_final_application/screens/loginScreen.dart';
 import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
 import 'package:golden_house_flutter_final_application/screens/search.dart';
+import 'package:golden_house_flutter_final_application/screens/signUpScreen.dart';
 import 'package:golden_house_flutter_final_application/screens/utensilsProduct.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Search(),
+      home: LoginScreen(),
     );
   }
 }

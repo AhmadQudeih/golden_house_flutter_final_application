@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:golden_house_flutter_final_application/screens/restaurantData.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MealCollapsed extends StatefulWidget {

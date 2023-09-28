@@ -105,7 +105,8 @@ class _HomePageState extends State<HomePage> {
               return Stack(
                 children: [
                   Container(
-                    height: 890,
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height*0.85,
                      padding: EdgeInsets.only(
                         top: 62, bottom: 30, right: 40, left: 40),
                     child: Column(

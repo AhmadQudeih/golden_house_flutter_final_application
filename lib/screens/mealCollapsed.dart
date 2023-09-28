@@ -11,6 +11,13 @@ class MealCollapsed extends StatefulWidget {
 }
 
 class _MealCollapsedState extends State<MealCollapsed> {
+  bool sideItem = false;
+  bool drinks = false;
+  bool editCheeseburger = false;
+  int groupValue1 = 0;
+  int groupValue2 = 0;
+  int groupValue3 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,19 +27,19 @@ class _MealCollapsedState extends State<MealCollapsed> {
         elevation: 0,
         leading: Container(
           width: 80,
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'Back',
                 style: GoogleFonts.tajawal(
-                  color: Color(0xFF292D32),
+                  color: const Color(0xFF292D32),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   height: 0.08,
@@ -44,45 +51,431 @@ class _MealCollapsedState extends State<MealCollapsed> {
         leadingWidth: 100,
         actions: [
           SvgPicture.asset('assets/svgIcons/more-square.svg'),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           SvgPicture.asset('assets/svgIcons/Cart.svg'),
         ],
       ),
       body: ListView(
         children: [
           // the Images
-          SizedBox(
-            width: 438,
-            height: 300,
-            child: Image.network(
-              'https://img.freepik.com/free-photo/tasty-burger-isolated-white-background-fresh-hamburger-fastfood-with-beef-cheese_90220-1063.jpg?w=900&t=st=1695756705~exp=1695757305~hmac=060276f7969368d40ae83f4b425c95151b43c9a1b1eade51e67253477c6fc93d',
-              width: double.infinity,
-              fit: BoxFit.cover,
+          Stack(
+            children: [
+              const SizedBox(
+                width: double.infinity,
+                height: 200,
+              ),
+              Positioned(
+                right: 0,
+                child: Image.asset('assets/svgIcons/images/Frame1.png'),
+              ),
+              Positioned(
+                top: 60,
+                left: 20,
+                child: Image.asset('assets/svgIcons/images/Rectangle.png'),
+              ),
+              Positioned(
+                top: 130,
+                left: 130,
+                child: Image.asset('assets/svgIcons/images/Frame.png'),
+              )
+            ],
+          ),
+          // Western BBQ Cheeseburger Meal
+          Container(
+            margin: const EdgeInsets.only(left: 21),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Western BBQ Cheeseburger Meal',
+                  style: TextStyle(
+                    color: Color(0xFF292D32),
+                    fontSize: 36,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '340-400 Cals',
+                      style: GoogleFonts.cairo(
+                        color: const Color(0xFFB3BFCB),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    SvgPicture.asset('assets/svgIcons/info-circle1.svg'),
+                  ],
+                ),
+              ],
             ),
           ),
-          Column(
-            children: [
-              Text(
-                'Western BBQ',
-                style: GoogleFonts.cairo(
-                  color: Color(0xFF292D32),
-                  fontSize: 36,
-                  fontWeight: FontWeight.w400,
-                  height: 0.03,
-                  letterSpacing: -1.80,
+          // Side Item
+          Container(
+            margin: const EdgeInsets.only(top: 25),
+            padding: const EdgeInsets.only(left: 21, right: 15),
+            width: 390,
+            height: 56,
+            color: const Color(0xffEFF2F5),
+            child: Row(
+              children: [
+                Text(
+                  'Side Item',
+                  style: GoogleFonts.cairo(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              Text(
-                'Cheeseburger Meal',
-                style: GoogleFonts.cairo(
-                  color: Color(0xFF292D32),
-                  fontSize: 36,
-                  fontWeight: FontWeight.w400,
-                  height: 0.03,
-                  letterSpacing: -1.80,
+                Container(
+                  margin: const EdgeInsets.only(left: 130),
+                  child: Text(
+                    'REQUIRED',
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF28B896),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      sideItem = !sideItem;
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(28, 28),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    backgroundColor: const Color(0xffB3BFCB),
+                    elevation: 0,
+                  ),
+                  child: SvgPicture.asset(sideItem
+                      ? 'assets/svgIcons/minus.svg'
+                      : 'assets/svgIcons/add.svg'),
+                ),
+              ],
+            ),
+          ),
+          Visibility(
+            visible: sideItem,
+            child: Column(
+              children: [
+                RadioListTile(
+                  activeColor: Colors.pinkAccent,
+                  title: Row(
+                    children: [
+                      Container(
+                        width: 43,
+                        height: 43,
+                        child: Image.network(
+                          'https://th.bing.com/th/id/OIP.f9SCpOVAIqXtEXvqdoIOHAHaHa?pid=ImgDet&rs=1',
+                          width: double.infinity,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Medium Fries',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          height: 0.08,
+                          letterSpacing: -0.17,
+                        ),
+                      ),
+                    ],
+                  ),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: 1,
+                  groupValue: groupValue1,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue1 = value!;
+                    });
+                  },
+                ),
+                RadioListTile(
+                  activeColor: Colors.pinkAccent,
+                  title: Row(
+                    children: [
+                      Container(
+                        width: 43,
+                        height: 43,
+                        child: Image.network(
+                          'https://th.bing.com/th/id/OIP.f9SCpOVAIqXtEXvqdoIOHAHaHa?pid=ImgDet&rs=1',
+                          width: double.infinity,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Text(
+                        'Large Fries',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          height: 0.08,
+                          letterSpacing: -0.17,
+                        ),
+                      ),
+                      const Spacer(),
+                      if (groupValue1 == 2)
+                        Text(
+                          '+\$2.99',
+                          style: GoogleFonts.cairo(
+                            color: const Color(0x99292D32),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                    ],
+                  ),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: 2,
+                  groupValue: groupValue1,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue1 = value!;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
+          // drinks
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(left: 21, right: 15),
+            width: 390,
+            height: 56,
+            color: const Color(0xffEFF2F5),
+            child: Row(
+              children: [
+                Text(
+                  'Drinks',
+                  style: GoogleFonts.cairo(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 160),
+                  child: Text(
+                    'REQUIRED',
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF28B896),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      drinks = !drinks;
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(28, 28),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    backgroundColor: const Color(0xffB3BFCB),
+                    elevation: 0,
+                  ),
+                  child: SvgPicture.asset(drinks
+                      ? 'assets/svgIcons/minus.svg'
+                      : 'assets/svgIcons/add.svg'),
+                ),
+              ],
+            ),
+          ),
+          Visibility(
+            visible: drinks,
+            child: Column(
+              children: [
+                RadioListTile(
+                  activeColor: Colors.pinkAccent,
+                  title: Text(
+                    'Soft Drinks',
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF292D32),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                      height: 0.08,
+                      letterSpacing: -0.17,
+                    ),
+                  ),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: 1,
+                  groupValue: groupValue2,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue2 = value!;
+                    });
+                  },
+                ),
+                RadioListTile(
+                  activeColor: Colors.pinkAccent,
+                  title: Text(
+                    'Juices',
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF292D32),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  value: 2,
+                  groupValue: groupValue2,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue2 = value!;
+                    });
+                  },
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 21),
+                  height: 65,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: Color(0xffB3BFCB),
+                        ),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 43,
+                          height: 33,
+                          child:
+                              Image.asset('assets/svgIcons/images/Frame1.png'),
+                        ),
+                        Text(
+                          'Fruit Punch Juice',
+                          style: GoogleFonts.cairo(
+                            color: const Color(0xFF292D32),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 80),
+                          child: Text(
+                            'Edit',
+                            textAlign: TextAlign.right,
+                            style: GoogleFonts.cairo(
+                              color: const Color(0xFF292D32),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Color(0xFF292D32),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // editCheeseburger
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(left: 21, right: 15),
+            width: 390,
+            height: 56,
+            color: const Color(0xffEFF2F5),
+            child: Row(
+              children: [
+                Text(
+                  'Edit Cheeseburger',
+                  style: GoogleFonts.cairo(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      editCheeseburger = !editCheeseburger;
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(28, 28),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    backgroundColor: const Color(0xffB3BFCB),
+                    elevation: 0,
+                  ),
+                  child: SvgPicture.asset(editCheeseburger
+                      ? 'assets/svgIcons/minus.svg'
+                      : 'assets/svgIcons/add.svg'),
+                ),
+              ],
+            ),
+          ),
+          Visibility(
+            visible: editCheeseburger,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 21),
+              height: 54,
+              child: Row(
+                children: [
+                  Container(
+                    child:
+                    Image.asset('assets/svgIcons/images/Frame1.png'),
+                    width: 43,
+                    height: 33,
+                  ),
+                  Text(
+                    'Fruit Punch Juice',
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF292D32),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 80),
+                    child: Text(
+                      'Edit',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.cairo(
+                        color: const Color(0xFF292D32),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Color(0xFF292D32),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ],
       ),

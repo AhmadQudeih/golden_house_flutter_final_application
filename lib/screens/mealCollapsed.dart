@@ -17,6 +17,12 @@ class _MealCollapsedState extends State<MealCollapsed> {
   int groupValue1 = 0;
   int groupValue2 = 0;
   int groupValue3 = 0;
+  int index1 = 1;
+  int index2 = 1;
+  int index3 = 1;
+  int index4 = 1;
+  int index5 = 1;
+  int index6 = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -439,44 +445,576 @@ class _MealCollapsedState extends State<MealCollapsed> {
             visible: editCheeseburger,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 21),
-              height: 54,
-              child: Row(
+              child: Column(
                 children: [
-                  Container(
-                    child:
-                    Image.asset('assets/svgIcons/images/Frame1.png'),
-                    width: 43,
-                    height: 33,
-                  ),
-                  Text(
-                    'Fruit Punch Juice',
-                    style: GoogleFonts.cairo(
-                      color: const Color(0xFF292D32),
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
+                  SizedBox(
+                    height: 54,
+                    child: Row(
+                      children: [
+                        Container(
+                          child:
+                              Image.asset('assets/svgIcons/images/Frame1.png'),
+                          width: 43,
+                          height: 33,
+                        ),
+                        Text(
+                          'Sesame Seed Bun',
+                          style: GoogleFonts.cairo(
+                            color: const Color(0xFF292D32),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 80),
+                          child: Text(
+                            'Edit',
+                            textAlign: TextAlign.right,
+                            style: GoogleFonts.cairo(
+                              color: const Color(0xFF292D32),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Color(0xFF292D32),
+                        ),
+                      ],
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 80),
-                    child: Text(
-                      'Edit',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.cairo(
-                        color: const Color(0xFF292D32),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
                       ),
-                    ),
+                      Text(
+                        'BBQ Sauce',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index1++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index1.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index1 > 0 ? index1-- : index1 = index1;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Color(0xFF292D32),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Beef Patty',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index2++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index2.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index2 > 0 ? index2-- : index2 = index2;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Cheese',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index3++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index3.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index3 > 0 ? index3-- : index3 = index3;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Banana Peppers',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index4++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index4.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index4 > 0 ? index4-- : index4 = index4;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Lettuce',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index5++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index5.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index5 > 0 ? index5-- : index5 = index5;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Chipotle Sauce',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        margin: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index6++;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/plus.png',
+                                width: 10,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              index6.toString(),
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF292D32),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  index6 > 0 ? index6-- : index6 = index6;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(28, 28),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                backgroundColor: Color(0xff2D3943),
+                                elevation: 0,
+                              ),
+                              child: Image.asset(
+                                'assets/svgIcons/minus.png',
+                                width: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/svgIcons/images/Frame1.png'),
+                        width: 43,
+                        height: 33,
+                      ),
+                      Text(
+                        'Sesame Seed Bun',
+                        style: GoogleFonts.cairo(
+                          color: const Color(0xFF292D32),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
           ),
+          // Last Button
+          Stack(
+            children: [
+              Container(height: 220),
+              Positioned(
+                bottom: 30,
+                left: 21,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 62,
+                      height: 62,
+                      padding: const EdgeInsets.all(19),
+                      decoration: ShapeDecoration(
+                        color: Color(0x4CF3739E),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      child: SvgPicture.asset('assets/svgIcons/heart.svg'),
+                    ),
+                    SizedBox(width: 20),
+                    SizedBox(
+                      width: 268,
+                      height: 62,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff292D32),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset('assets/svgIcons/bag-happy.svg'),
+                            SizedBox(width: 10),
+                            Text(
+                              'Add to Bag',
+                              style: GoogleFonts.cairo(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              '\$8.69',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.cairo(
+                                color: Color(0xFF45B7E8),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:golden_house_flutter_final_application/screens/editAddOn.dart';
+import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MealCollapsed extends StatefulWidget {
@@ -37,7 +38,14 @@ class _MealCollapsedState extends State<MealCollapsed> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
               ),

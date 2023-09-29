@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:golden_house_flutter_final_application/screens/imagesAssets.dart';
+import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -42,24 +43,25 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         children: [
           // Back Button
           Container(
             width: 80,
-            margin: EdgeInsets.only(top: 30, right: 290, left: 10),
+            margin: const EdgeInsets.only(top: 30, right: 290, left: 10),
             child: Row(
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   color: Colors.black,
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'Back',
                   style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
+                    color: const Color(0xFF292D32),
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     height: 0.08,
@@ -70,7 +72,7 @@ class _CategoryPageState extends State<CategoryPage> {
           ),
           // All Categories
           Container(
-            margin: EdgeInsets.only(top: 55, left: 21),
+            margin: const EdgeInsets.only(top: 55, left: 21),
             child: Text(
               'Burgers',
               style: GoogleFonts.tajawal(
@@ -82,27 +84,42 @@ class _CategoryPageState extends State<CategoryPage> {
               ),
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
 
           ListView.separated(
             shrinkWrap: true,
             itemCount: 5,
             itemBuilder: (context, index) {
-              return ListTile(
-                leading: Image.network(
-                  titleStore[index].ImageURl,
-                  width: 40,
+              return ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MealCollapsed(),
+                    ),
+                  );
+
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  elevation: 0,
                 ),
-                title: Text(titleStore[index].Logo),
-                subtitle: Text(titleStore[index].description),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: Colors.black,
+                child: ListTile(
+                  leading: Image.network(
+                    titleStore[index].ImageURl,
+                    width: 40,
+                  ),
+                  title: Text(titleStore[index].Logo),
+                  subtitle: Text(titleStore[index].description),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.black,
+                  ),
                 ),
               );
             },
             separatorBuilder: (context, index) {
-              return Divider();
+              return const Divider();
             },
           )
         ],

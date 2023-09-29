@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/categoryPage.dart';
 import 'package:golden_house_flutter_final_application/screens/utensils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -93,125 +94,6 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-            ),
-            context: context,
-            builder: (BuildContext context) {
-              return Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 0.85,
-                    padding: const EdgeInsets.only(
-                        top: 62, bottom: 30, right: 40, left: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                                'assets/svgIcons/profile-2user.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/heart-add.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/send-2.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/info-circle.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 10,
-                    right: 168,
-                    child:
-                        SvgPicture.asset('assets/svgIcons/Rectangle 1162.svg'),
-                  ),
-                  Positioned(
-                    top: 9,
-                    right: 9,
-                    child: SvgPicture.asset('assets/svgIcons/Icon.svg'),
-                  ),
-                ],
-              );
-            },
-          );
-        },
-        child: Image.asset('assets/svgIcons/up-arrow.png'),
-        backgroundColor: Colors.white,
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         children: [
@@ -234,7 +116,134 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                              ),
+                            ),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Stack(
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.85,
+                                    padding: const EdgeInsets.only(
+                                        top: 62,
+                                        bottom: 30,
+                                        right: 40,
+                                        left: 40),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/svgIcons/profile-2user.svg'),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                'Order with Friends',
+                                                style: GoogleFonts.cairo(
+                                                  color:
+                                                      const Color(0xFF292D32),
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.08,
+                                                  letterSpacing: -0.17,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(),
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/svgIcons/heart-add.svg'),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                'Order with Friends',
+                                                style: GoogleFonts.cairo(
+                                                  color:
+                                                      const Color(0xFF292D32),
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.08,
+                                                  letterSpacing: -0.17,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(),
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/svgIcons/send-2.svg'),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                'Order with Friends',
+                                                style: GoogleFonts.cairo(
+                                                  color:
+                                                      const Color(0xFF292D32),
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.08,
+                                                  letterSpacing: -0.17,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(),
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/svgIcons/info-circle.svg'),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                'Order with Friends',
+                                                style: GoogleFonts.cairo(
+                                                  color:
+                                                      const Color(0xFF292D32),
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w400,
+                                                  height: 0.08,
+                                                  letterSpacing: -0.17,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 10,
+                                    right: 168,
+                                    child: SvgPicture.asset(
+                                        'assets/svgIcons/Rectangle 1162.svg'),
+                                  ),
+                                  Positioned(
+                                    top: 9,
+                                    right: 9,
+                                    child: SvgPicture.asset(
+                                        'assets/svgIcons/Icon.svg'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -262,7 +271,14 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoryPage(),
+                            ),
+                          );
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -398,10 +414,9 @@ class _HomePageState extends State<HomePage> {
                                     Text(
                                       store2[index].description,
                                       style: GoogleFonts.tajawal(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black
-                                      ),
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),

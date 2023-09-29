@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:golden_house_flutter_final_application/screens/loginScreen.dart';
-import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
-import 'package:golden_house_flutter_final_application/screens/test.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -12,9 +9,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

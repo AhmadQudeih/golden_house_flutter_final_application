@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantData.dart';
+import 'package:golden_house_flutter_final_application/screens/restaurantMenu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Restaurant extends StatefulWidget {
@@ -66,19 +67,26 @@ class _RestaurantState extends State<Restaurant> {
         elevation: 0,
         leading: Container(
           width: 80,
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RestaurantMenu(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'Back',
                 style: GoogleFonts.tajawal(
-                  color: Color(0xFF292D32),
+                  color: const Color(0xFF292D32),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   height: 0.08,
@@ -90,9 +98,9 @@ class _RestaurantState extends State<Restaurant> {
         leadingWidth: 100,
         actions: [
           SvgPicture.asset('assets/svgIcons/more-square.svg'),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           SvgPicture.asset('assets/svgIcons/Frame 113.svg'),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           SvgPicture.asset('assets/svgIcons/Cart.svg'),
         ],
       ),
@@ -100,7 +108,7 @@ class _RestaurantState extends State<Restaurant> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -111,12 +119,12 @@ class _RestaurantState extends State<Restaurant> {
                 children: [
                   Container(
                     height: 332,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30)),
                     ),
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         top: 62, bottom: 30, right: 40, left: 40),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -130,7 +138,7 @@ class _RestaurantState extends State<Restaurant> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -140,7 +148,7 @@ class _RestaurantState extends State<Restaurant> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/heart-add.svg'),
@@ -149,7 +157,7 @@ class _RestaurantState extends State<Restaurant> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -159,7 +167,7 @@ class _RestaurantState extends State<Restaurant> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/send-2.svg'),
@@ -168,7 +176,7 @@ class _RestaurantState extends State<Restaurant> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -178,7 +186,7 @@ class _RestaurantState extends State<Restaurant> {
                             ),
                           ],
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             SvgPicture.asset('assets/svgIcons/info-circle.svg'),
@@ -187,7 +195,7 @@ class _RestaurantState extends State<Restaurant> {
                               child: Text(
                                 'Order with Friends',
                                 style: GoogleFonts.cairo(
-                                  color: Color(0xFF292D32),
+                                  color: const Color(0xFF292D32),
                                   fontSize: 17,
                                   fontWeight: FontWeight.w400,
                                   height: 0.08,
@@ -216,15 +224,15 @@ class _RestaurantState extends State<Restaurant> {
             },
           );
         },
-        child: Image.asset('assets/svgIcons/up-arrow.png'),
         backgroundColor: Colors.white,
+        child: Image.asset('assets/svgIcons/up-arrow.png'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         children: [
           // Expanded(child: showBottomSheet(BuildContext context))
           // restImg
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 200,
             child: Image.network(
@@ -233,7 +241,7 @@ class _RestaurantState extends State<Restaurant> {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(height: 21),
+          const SizedBox(height: 21),
           // restMain
           ListTile(
             leading: Image.network(
@@ -243,7 +251,7 @@ class _RestaurantState extends State<Restaurant> {
             title: Text(
               restMenuData[0].restName,
               style: GoogleFonts.tajawal(
-                color: Color(0xFF292D32),
+                color: const Color(0xFF292D32),
                 fontSize: 36,
                 fontWeight: FontWeight.w400,
                 height: 0.03,
@@ -256,7 +264,7 @@ class _RestaurantState extends State<Restaurant> {
                 Text(
                   restMenuData[0].description,
                   style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
+                    color: const Color(0xFF292D32),
                     fontSize: 17,
                     fontWeight: FontWeight.w400,
                     letterSpacing: -0.17,
@@ -266,16 +274,16 @@ class _RestaurantState extends State<Restaurant> {
             ),
             trailing: SvgPicture.asset('assets/svgIcons/Frame 35.svg'),
           ),
-          SizedBox(height: 21),
+          const SizedBox(height: 21),
           Stack(
             children: [
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 21),
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 21),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 width: 348,
                 height: 109,
                 decoration: ShapeDecoration(
-                  color: Color(0xFFe9ecf0),
+                  color: const Color(0xFFe9ecf0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -285,11 +293,11 @@ class _RestaurantState extends State<Restaurant> {
                     Row(
                       children: [
                         SvgPicture.asset('assets/svgIcons/Star 2.svg'),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           'Ratings: 4.5',
                           style: GoogleFonts.tajawal(
-                            color: Color(0xFF292D32),
+                            color: const Color(0xFF292D32),
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
                             letterSpacing: -0.14,
@@ -297,15 +305,15 @@ class _RestaurantState extends State<Restaurant> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         SvgPicture.asset('assets/svgIcons/box-time.svg'),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           'Delivers in 15-20 min',
                           style: GoogleFonts.tajawal(
-                            color: Color(0xFF292D32),
+                            color: const Color(0xFF292D32),
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
                             letterSpacing: -0.14,
@@ -313,15 +321,15 @@ class _RestaurantState extends State<Restaurant> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         SvgPicture.asset('assets/svgIcons/element-2.svg'),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           'Burgers',
                           style: GoogleFonts.tajawal(
-                            color: Color(0xFF292D32),
+                            color: const Color(0xFF292D32),
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
                             letterSpacing: -0.14,
@@ -339,16 +347,16 @@ class _RestaurantState extends State<Restaurant> {
               )
             ],
           ),
-          SizedBox(height: 95),
+          const SizedBox(height: 95),
           // search menu
           Row(
             children: [
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFF46505D),
+                  color: const Color(0xFF46505D),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -366,13 +374,13 @@ class _RestaurantState extends State<Restaurant> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEFF2F5),
+                  color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -390,13 +398,13 @@ class _RestaurantState extends State<Restaurant> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEFF2F5),
+                  color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -416,7 +424,7 @@ class _RestaurantState extends State<Restaurant> {
               ),
             ],
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           // ListView.separated
           ListView.separated(
             shrinkWrap: true,
@@ -427,7 +435,7 @@ class _RestaurantState extends State<Restaurant> {
                   restMenuData2[index].logoURL,
                   width: 40,
                 ),
-                title: Container(
+                title: SizedBox(
                     height: 60, child: Text(restMenuData2[index].restName)),
                 subtitle: Row(
                   children: [
@@ -441,11 +449,11 @@ class _RestaurantState extends State<Restaurant> {
                         decoration: TextDecoration.lineThrough,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Text(
                       restMenuData2[index].newPrice,
                       style: GoogleFonts.tajawal(
-                        color: Color(0xFF45B7E8),
+                        color: const Color(0xFF45B7E8),
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                         height: 0.07,
@@ -453,14 +461,14 @@ class _RestaurantState extends State<Restaurant> {
                     ),
                   ],
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios_rounded,
                   color: Colors.black,
                 ),
               );
             },
             separatorBuilder: (context, index) {
-              return Divider();
+              return const Divider();
             },
           ),
         ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/homePage.dart';
+import 'package:golden_house_flutter_final_application/screens/restaurant.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantData.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -66,19 +68,26 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         elevation: 0,
         leading: Container(
           width: 80,
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'Back',
                 style: GoogleFonts.tajawal(
-                  color: Color(0xFF292D32),
+                  color: const Color(0xFF292D32),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   height: 0.08,
@@ -90,39 +99,53 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
         leadingWidth: 100,
         actions: [
           SvgPicture.asset('assets/svgIcons/more-square.svg'),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           SvgPicture.asset('assets/svgIcons/Frame 113.svg'),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           SvgPicture.asset('assets/svgIcons/Cart.svg'),
         ],
       ),
       body: ListView(
         children: [
           // restMain
-          ListTile(
-            leading: Image.network(
-              restMenuData[0].logoURL,
-              width: 40,
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Restaurant(),
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0,
             ),
-            title: Text(restMenuData[0].restName),
-            subtitle: Row(
-              children: [
-                SvgPicture.asset('assets/svgIcons/location1.svg'),
-                Text(restMenuData[0].description),
-              ],
+            child: ListTile(
+              leading: Image.network(
+                restMenuData[0].logoURL,
+                width: 40,
+              ),
+              title: Text(restMenuData[0].restName),
+              subtitle: Row(
+                children: [
+                  SvgPicture.asset('assets/svgIcons/location1.svg'),
+                  Text(restMenuData[0].description),
+                ],
+              ),
+              trailing: SvgPicture.asset('assets/svgIcons/Frame 35.svg'),
             ),
-            trailing: SvgPicture.asset('assets/svgIcons/Frame 35.svg'),
           ),
-          SizedBox(height: 95),
+          const SizedBox(height: 95),
           // search menu
           Row(
             children: [
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFF46505D),
+                  color: const Color(0xFF46505D),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -140,13 +163,13 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEFF2F5),
+                  color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -164,13 +187,13 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: 125,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
-                  color: Color(0xFFEFF2F5),
+                  color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -190,7 +213,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
               ),
             ],
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           // ListView.separated
           SizedBox(
             height: 500,
@@ -203,7 +226,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                     restMenuData2[index].logoURL,
                     width: 40,
                   ),
-                  title: Container(
+                  title: SizedBox(
                       height: 60, child: Text(restMenuData2[index].restName)),
                   subtitle: Row(
                     children: [
@@ -217,11 +240,11 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                           decoration: TextDecoration.lineThrough,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
                         restMenuData2[index].newPrice,
                         style: GoogleFonts.tajawal(
-                          color: Color(0xFF45B7E8),
+                          color: const Color(0xFF45B7E8),
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           height: 0.07,
@@ -229,14 +252,14 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                       ),
                     ],
                   ),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.arrow_forward_ios_rounded,
                     color: Colors.black,
                   ),
                 );
               },
               separatorBuilder: (context, index) {
-                return Divider();
+                return const Divider();
               },
             ),
           ),

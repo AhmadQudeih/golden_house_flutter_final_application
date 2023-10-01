@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:golden_house_flutter_final_application/screens/contatUs.dart';
+import 'package:golden_house_flutter_final_application/screens/deliverAddress.dart';
 import 'package:golden_house_flutter_final_application/screens/editInfo.dart';
 import 'package:golden_house_flutter_final_application/screens/loginScreen.dart';
 import 'package:golden_house_flutter_final_application/screens/onBoardingscreen.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SuccessScreen(),
+      home: DeliverAddres(),
     );
   }
 }

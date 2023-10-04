@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/Firebase/firebaseAuth.dart';
 import 'package:golden_house_flutter_final_application/screens/homePage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -13,6 +15,18 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool visibil = true;
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
+  TextEditingController _checkemail = TextEditingController();
+  TextEditingController _checkpassword = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: TextField(
+                            controller: _checkemail,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
@@ -218,6 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: TextField(
+                            controller: _checkpassword,
                             obscureText: true,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
@@ -297,6 +313,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: TextField(
+                            controller: _email,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
@@ -417,6 +434,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           child: TextField(
+                            controller: _password,
                             obscureText: true,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
@@ -573,12 +591,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 64,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ),
-                        );
+                        visibil ? check() : signUpUI();
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => HomePage(),
+                        //   ),
+                        // );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFBBE8FB),
@@ -611,5 +630,76 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> signUpUI() async {
+    FirebaseAuthController firebaseAuth = FirebaseAuthController();
+    bool status = await firebaseAuth.signUp(_email.text, _password.text);
+    if (status) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('تم انشاء الحساب بنجاح بنجاح'),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.green,
+        ),
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("خطأ في عملية انشاء الحساب"),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  Future<void> logInUI() async {
+    FirebaseAuthController firebaseAuth = FirebaseAuthController();
+    bool status =
+        await firebaseAuth.login(_checkemail.text, _checkpassword.text);
+    if (status) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('تم تسجيل الدخول بنجاح'),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.green,
+        ),
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("خطأ في عملية تسجيل الدخول"),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  check() async {
+    if (_checkemail.text.isNotEmpty && _checkpassword.text.isNotEmpty) {
+      await logInUI();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("erorr"),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }

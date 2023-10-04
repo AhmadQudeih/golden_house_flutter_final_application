@@ -64,9 +64,142 @@ class _MealCollapsedState extends State<MealCollapsed> {
         ),
         leadingWidth: 100,
         actions: [
-          SvgPicture.asset('assets/svgIcons/more-square.svg'),
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                context: context,
+                builder: (BuildContext context) {
+                  return Stack(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height *
+                            0.85,
+                        padding: const EdgeInsets.only(
+                            top: 62,
+                            bottom: 30,
+                            right: 40,
+                            left: 40),
+                        child: Column(
+                          crossAxisAlignment:
+                          CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/profile-2user.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color:
+                                      const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/heart-add.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color:
+                                      const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/send-2.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color:
+                                      const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/info-circle.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color:
+                                      const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 10,
+                        right: 168,
+                        child: SvgPicture.asset(
+                            'assets/svgIcons/Rectangle 1162.svg'),
+                      ),
+                      Positioned(
+                        top: 9,
+                        right: 9,
+                        child: SvgPicture.asset(
+                            'assets/svgIcons/Icon.svg'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            icon: SvgPicture.asset('assets/svgIcons/more-square.svg'),
+          ),
           const SizedBox(width: 16),
-          SvgPicture.asset('assets/svgIcons/Cart.svg'),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/svgIcons/Cart.svg'),
+          ),
         ],
       ),
       body: ListView(

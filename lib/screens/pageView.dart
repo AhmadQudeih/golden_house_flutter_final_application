@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:golden_house_flutter_final_application/screens/loginScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PageViewScreen extends StatefulWidget {
@@ -44,8 +45,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
             width: double.infinity,
             height: 530,
             child: PageView.builder(
+              onPageChanged: (value) {
+                setState(() {
+                  pageIndex = value;
+                });
+              },
               itemCount: 3,
               itemBuilder: (context, index) {
+                pageIndex = index;
                 return Column(
                   children: [
                     SizedBox(
@@ -63,7 +70,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                     SizedBox(height: 35),
                     Text(
                       store[index].disc,
-                       style: GoogleFonts.poppins(
+                      style: GoogleFonts.poppins(
                         color: Color(0xFF6D5959),
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
@@ -88,7 +95,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   width: 46.36,
                   height: 6,
                   decoration: ShapeDecoration(
-                    // color: count==0?Color(0xFFF3739E):Color(0xffd9d9d9),
+                    color:
+                        pageIndex == 0 ? Color(0xFFF3739E) : Color(0xffd9d9d9),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                   ),
@@ -97,7 +105,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   width: 46.36,
                   height: 6,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFF3739E),
+                    color:
+                        pageIndex == 1 ? Color(0xFFF3739E) : Color(0xffd9d9d9),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                   ),
@@ -106,7 +115,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   width: 46.36,
                   height: 6,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFF3739E),
+                    color:
+                        pageIndex == 2 ? Color(0xFFF3739E) : Color(0xffd9d9d9),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                   ),
@@ -116,7 +126,12 @@ class _PageViewScreenState extends State<PageViewScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xfff4739e),
@@ -125,7 +140,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            child: Text('Next'),
+            child: pageIndex == 2 ? Text('Order') : Text('Next'),
           ),
         ],
       ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1078635706977",
+    "project_id": "afgasgb",
+    "storage_bucket": "afgasgb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078635706977:android:66fe8079e55cdb646e4820",
+        "android_client_info": {
+          "package_name": "com.example.golden_house_flutter_final_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKiHsBO-AAX90s_NgwScgzp54QyrAvZ74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

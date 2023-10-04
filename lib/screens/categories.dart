@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/categoryPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'homePage.dart';
@@ -170,10 +171,16 @@ class _CategoriesState extends State<Categories> {
                         mainAxisSpacing: 16),
                     itemCount: 11,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xfffdeef3),
-                          borderRadius: BorderRadius.circular(100),
+                      return ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CategoryPage(),),);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Color(0xfffdeef3),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
                         ),
                         child: Container(
                           margin: EdgeInsets.only(bottom: 10),
@@ -193,6 +200,7 @@ class _CategoriesState extends State<Categories> {
                                 style: GoogleFonts.tajawal(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.black,
                                 ),
                               ),
                             ],

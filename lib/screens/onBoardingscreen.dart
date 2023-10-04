@@ -16,7 +16,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void initState() {
     // مثود يشتغل اول ما يشتغل البرنامج
     // TODO: implement initState
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => PageViewScreen()));
     });

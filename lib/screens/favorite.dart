@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:golden_house_flutter_final_application/screens/deliverAddress.dart';
-import 'package:golden_house_flutter_final_application/screens/editAddOn.dart';
 import 'package:golden_house_flutter_final_application/screens/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 

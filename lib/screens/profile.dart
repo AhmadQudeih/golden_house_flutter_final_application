@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/contatUs.dart';
+import 'package:golden_house_flutter_final_application/screens/loginScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'editInfo.dart';
+import 'favorite.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -13,6 +18,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 28, vertical: 55),
         child: Column(
@@ -36,61 +42,133 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             SizedBox(height: 86),
-            Row(
-              children: [
-                SvgPicture.asset("assets/svgIcons/Vector.svg"),
-                SizedBox(width: 37),
-                Text(
-                  "Your Favorite",
-                  style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Favorite(),
                   ),
-                ),
-              ],
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/svgIcons/favorite-svgrepo-com.svg",
+                    width: 47,
+                    height: 37,
+                  ),
+                  SizedBox(width: 37),
+                  Text(
+                    "Your Favorite",
+                    style: GoogleFonts.tajawal(
+                      color: Color(0xFF292D32),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                SvgPicture.asset("assets/svgIcons/Group.svg"),
-                SizedBox(width: 37),
-                Text(
-                  "edit info",
-                  style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditInfo(),
                   ),
-                ),
-              ],
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/svgIcons/person-svgrepo-com.svg",
+                    width: 47,
+                    height: 37,
+                  ),
+                  SizedBox(width: 37),
+                  Text(
+                    "edit info",
+                    style: GoogleFonts.tajawal(
+                      color: Color(0xFF292D32),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                SvgPicture.asset("assets/svgIcons/ep_promotion.svg"),
-                SizedBox(width: 37),
-                Text(
-                  "Contact Us",
-                  style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ContatUs(),
                   ),
-                ),
-              ],
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/svgIcons/telegram-svgrepo-com.svg",
+                    width: 47,
+                    height: 37,
+                  ),
+                  SizedBox(width: 37),
+                  Text(
+                    "Contact Us",
+                    style: GoogleFonts.tajawal(
+                      color: Color(0xFF292D32),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                SvgPicture.asset("assets/svgIcons/majesticons_logout-half-circle-line.svg"),
-                SizedBox(width: 37),
-                Text(
-                  "log out",
-                  style: GoogleFonts.tajawal(
-                    color: Color(0xFF292D32),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
                   ),
-                ),
-              ],
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/svgIcons/logout-svgrepo-com.svg",
+                    width: 47,
+                    height: 37,
+                  ),
+                  SizedBox(width: 37),
+                  Text(
+                    "log out",
+                    style: GoogleFonts.tajawal(
+                      color: Color(0xFF292D32),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

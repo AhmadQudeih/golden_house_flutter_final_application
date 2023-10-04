@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/reportIssues.dart';
+import 'package:golden_house_flutter_final_application/screens/successScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DeliverAddres extends StatefulWidget {
@@ -77,7 +79,184 @@ class _DeliverAddresState extends State<DeliverAddres> {
                 ],
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    builder: (BuildContext context) {
+                      double screenHeight = MediaQuery.of(context).size.height;
+                      double bottomSheetHeight = screenHeight * 0.75;
+                      return Stack(
+                        children: [
+                          Container(
+                            height: bottomSheetHeight,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30)),
+                            ),
+                            padding: const EdgeInsets.only(
+                                top: 62, bottom: 30, right: 40, left: 40),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Good Evening Luisa
+                                Container(
+                                  margin: const EdgeInsets.only(top: 5),
+                                  width: double.infinity,
+                                  child: Text(
+                                    'Edit Address',
+                                    style: GoogleFonts.tajawal(
+                                        fontSize: 30,
+                                        shadows: [
+                                          const Shadow(
+                                            offset: Offset(0, 2),
+                                            blurRadius: 5,
+                                            color: Colors.grey,
+                                          )
+                                        ]),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                // Search
+                                Container(
+                                  margin: const EdgeInsets.only(top: 15),
+                                  child: Container(
+                                    width: 348,
+                                    height: 51,
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFFEFF2F5),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(14),
+                                      ),
+                                    ),
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                            color: Color(0xFFEFF2F5),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(14),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: Colors.black87),
+                                          borderRadius:
+                                              BorderRadius.circular(14),
+                                        ),
+                                        hintText: 'Look for an address',
+                                        hintStyle: GoogleFonts.tajawal(
+                                          color: const Color(0xFFB3BFCB),
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: -0.17,
+                                        ),
+                                        prefixIcon: IconButton(
+                                          onPressed: () {},
+                                          icon: SvgPicture.asset(
+                                            'assets/svgIcons/search-normal.svg',
+                                            width: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.white,
+                                            elevation: 0,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    'Saved Locations',
+                                    style: TextStyle(
+                                      color: Color(0xFF292D32),
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  margin: EdgeInsets.only(top: 21),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  child: Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                          "assets/svgIcons/home-2-svgrepo-com.svg"),
+                                      SizedBox(width: 20),
+                                      Text(
+                                        '34, George Avenue, Brampton,\nON L6T 8H6',
+                                        style: TextStyle(
+                                          color: Color(0xFF292D32),
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                                Container(
+                                  height: 61,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SuccessScreen(),
+                                        ),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xff292d32),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset("assets/svgIcons/gps.svg"),
+                                        SizedBox(width: 20),
+                                        Text(
+                                          "Use Current Location",
+                                          style: GoogleFonts.tajawal(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ],
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                    ),
+                                  ),
+                                  width: double.infinity,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: 10,
+                            right: 168,
+                            child: SvgPicture.asset(
+                                'assets/svgIcons/Rectangle 1162.svg'),
+                          ),
+                          Positioned(
+                            top: 9,
+                            right: 9,
+                            child: SvgPicture.asset('assets/svgIcons/Icon.svg'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   elevation: 0,

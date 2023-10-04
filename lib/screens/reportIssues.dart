@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/restaurant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ReportIssues extends StatefulWidget {
@@ -23,7 +24,14 @@ class _ReportIssuesState extends State<ReportIssues> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Restaurant(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
               ),

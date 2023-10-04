@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:golden_house_flutter_final_application/screens/favorite.dart';
 import 'package:golden_house_flutter_final_application/screens/onBoardingscreen.dart';
+import 'package:golden_house_flutter_final_application/screens/profile.dart';
+import 'package:golden_house_flutter_final_application/screens/restaurant.dart';
 import 'package:golden_house_flutter_final_application/screens/shoppingList.dart';
 import 'firebase_options.dart';
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ShoppingList(),
+      home: Favorite(),
     );
   }
 }

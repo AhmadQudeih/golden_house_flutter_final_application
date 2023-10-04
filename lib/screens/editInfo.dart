@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EditInfo extends StatefulWidget {
@@ -23,7 +24,14 @@ class _EditInfoState extends State<EditInfo> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Profile(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.arrow_back),
                 color: Color(0xff0092ca),
               ),
@@ -43,8 +51,8 @@ class _EditInfoState extends State<EditInfo> {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      child:
-                          Image.asset("assets/svgIcons/unsplash_DItYlc26zVI.png"),
+                      child: Image.asset(
+                          "assets/svgIcons/unsplash_DItYlc26zVI.png"),
                     ),
                     Positioned(
                       bottom: 0,
@@ -97,7 +105,7 @@ class _EditInfoState extends State<EditInfo> {
                 ),
                 SizedBox(height: 7),
                 Container(
-                  padding: EdgeInsets.only(bottom: 10,left: 10),
+                  padding: EdgeInsets.only(bottom: 10, left: 10),
                   height: 39,
                   decoration: ShapeDecoration(
                     color: Colors.white,
@@ -111,7 +119,7 @@ class _EditInfoState extends State<EditInfo> {
                         offset: Offset(5, 10),
                         spreadRadius: 0,
                       )
-                    ], 
+                    ],
                   ),
                   child: TextField(
                     decoration: InputDecoration(

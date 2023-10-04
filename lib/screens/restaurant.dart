@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/reportIssues.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantData.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantMenu.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,137 +98,147 @@ class _RestaurantState extends State<Restaurant> {
         ),
         leadingWidth: 100,
         actions: [
-          SvgPicture.asset('assets/svgIcons/more-square.svg'),
-          const SizedBox(width: 16),
-          SvgPicture.asset('assets/svgIcons/Frame 113.svg'),
-          const SizedBox(width: 16),
-          SvgPicture.asset('assets/svgIcons/Cart.svg'),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-            ),
-            builder: (BuildContext context) {
-              return Stack(
-                children: [
-                  Container(
-                    height: 332,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30)),
-                    ),
-                    padding: const EdgeInsets.only(
-                        top: 62, bottom: 30, right: 40, left: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                                'assets/svgIcons/profile-2user.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/heart-add.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/send-2.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/svgIcons/info-circle.svg'),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Order with Friends',
-                                style: GoogleFonts.cairo(
-                                  color: const Color(0xFF292D32),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w400,
-                                  height: 0.08,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  Positioned(
-                    top: 10,
-                    right: 168,
-                    child:
-                        SvgPicture.asset('assets/svgIcons/Rectangle 1162.svg'),
-                  ),
-                  Positioned(
-                    top: 9,
-                    right: 9,
-                    child: SvgPicture.asset('assets/svgIcons/Icon.svg'),
-                  ),
-                ],
+                ),
+                builder: (BuildContext context) {
+                  return Stack(
+                    children: [
+                      Container(
+                        height: 332,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30)),
+                        ),
+                        padding: const EdgeInsets.only(
+                            top: 62, bottom: 30, right: 40, left: 40),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/profile-2user.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color: const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/heart-add.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color: const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset('assets/svgIcons/send-2.svg'),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Order with Friends',
+                                    style: GoogleFonts.cairo(
+                                      color: const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/svgIcons/info-circle.svg'),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ReportIssues(),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Report Store',
+                                    style: GoogleFonts.cairo(
+                                      color: const Color(0xFF292D32),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w400,
+                                      height: 0.08,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 10,
+                        right: 168,
+                        child: SvgPicture.asset(
+                            'assets/svgIcons/Rectangle 1162.svg'),
+                      ),
+                      Positioned(
+                        top: 9,
+                        right: 9,
+                        child: SvgPicture.asset('assets/svgIcons/Icon.svg'),
+                      ),
+                    ],
+                  );
+                },
               );
             },
-          );
-        },
-        backgroundColor: Colors.white,
-        child: Image.asset('assets/svgIcons/up-arrow.png'),
+            icon: SvgPicture.asset('assets/svgIcons/more-square.svg'),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/svgIcons/Frame 113.svg'),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/svgIcons/Cart.svg'),
+          ),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         children: [
           // Expanded(child: showBottomSheet(BuildContext context))
@@ -279,7 +290,8 @@ class _RestaurantState extends State<Restaurant> {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 21),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 width: 348,
                 height: 109,
                 decoration: ShapeDecoration(
@@ -354,7 +366,8 @@ class _RestaurantState extends State<Restaurant> {
               Container(
                 width: 125,
                 height: 40,
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
                   color: const Color(0xFF46505D),
                   shape: RoundedRectangleBorder(
@@ -378,7 +391,8 @@ class _RestaurantState extends State<Restaurant> {
               Container(
                 width: 125,
                 height: 40,
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
                   color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(
@@ -402,7 +416,8 @@ class _RestaurantState extends State<Restaurant> {
               Container(
                 width: 125,
                 height: 40,
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: ShapeDecoration(
                   color: const Color(0xFFEFF2F5),
                   shape: RoundedRectangleBorder(

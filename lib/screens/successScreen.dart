@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:golden_house_flutter_final_application/screens/homePage.dart';
+import 'package:golden_house_flutter_final_application/screens/homeScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SuccessScreen extends StatefulWidget {
@@ -9,6 +13,16 @@ class SuccessScreen extends StatefulWidget {
 }
 
 class _SuccessScreenState extends State<SuccessScreen> {
+  void initState() {
+    // مثود يشتغل اول ما يشتغل البرنامج
+    // TODO: implement initState
+    Timer(const Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    });
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

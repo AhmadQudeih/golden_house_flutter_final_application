@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:golden_house_flutter_final_application/screens/categories.dart';
 import 'package:golden_house_flutter_final_application/screens/imagesAssets.dart';
 import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'homePage.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
@@ -44,32 +47,44 @@ class _CategoryPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: Container(
+          width: 80,
+          margin: const EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Categories(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.arrow_back),
+                color: Colors.black,
+              ),
+              const Spacer(),
+              Text(
+                'Back',
+                style: GoogleFonts.tajawal(
+                  color: const Color(0xFF292D32),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  height: 0.08,
+                ),
+              ),
+            ],
+          ),
+        ),
+        leadingWidth: 100,
+      ),
+
       body: ListView(
         children: [
-          // Back Button
-          Container(
-            width: 80,
-            margin: const EdgeInsets.only(top: 30, right: 290, left: 10),
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_back),
-                  color: Colors.black,
-                ),
-                const Spacer(),
-                Text(
-                  'Back',
-                  style: GoogleFonts.tajawal(
-                    color: const Color(0xFF292D32),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    height: 0.08,
-                  ),
-                ),
-              ],
-            ),
-          ),
           // All Categories
           Container(
             margin: const EdgeInsets.only(top: 55, left: 21),

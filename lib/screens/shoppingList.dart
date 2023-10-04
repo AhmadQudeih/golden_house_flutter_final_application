@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:golden_house_flutter_final_application/screens/deliverAddress.dart';
+import 'package:golden_house_flutter_final_application/screens/editAddOn.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'homePage.dart';
 
 class ShoppingList extends StatefulWidget {
   const ShoppingList({super.key});
@@ -27,7 +31,14 @@ class _ShoppingListState extends State<ShoppingList> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
                 icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.black,
@@ -320,7 +331,7 @@ class _ShoppingListState extends State<ShoppingList> {
               )
             ],
           ),
-          SizedBox(height: 200),
+          SizedBox(height: 130),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
@@ -430,7 +441,14 @@ class _ShoppingListState extends State<ShoppingList> {
             width: double.infinity,
             height: 61,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DeliverAddres(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xff292d32),
                 shape: RoundedRectangleBorder(
@@ -438,7 +456,7 @@ class _ShoppingListState extends State<ShoppingList> {
                 ),
               ),
               child: Text(
-                "Next",
+                "Complate Order",
                 style: GoogleFonts.tajawal(
                   color: Colors.white,
                   fontSize: 16,

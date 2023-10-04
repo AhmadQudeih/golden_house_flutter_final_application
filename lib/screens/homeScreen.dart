@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:golden_house_flutter_final_application/screens/discoverSearch.dart';
 import 'package:golden_house_flutter_final_application/screens/profile.dart';
 import 'package:golden_house_flutter_final_application/screens/restaurantMenu.dart';
+import 'package:golden_house_flutter_final_application/screens/shoppingList.dart';
 import 'package:golden_house_flutter_final_application/screens/utensils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -71,7 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ShoppingList(),
+                      ),
+                    );
+                  },
                   icon: SvgPicture.asset(
                     'assets/svgIcons/Cart.svg',
                   ),

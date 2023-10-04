@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:golden_house_flutter_final_application/screens/categories.dart';
 import 'package:golden_house_flutter_final_application/screens/imagesAssets.dart';
 import 'package:golden_house_flutter_final_application/screens/mealCollapsed.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'homePage.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
@@ -82,7 +79,6 @@ class _CategoryPageState extends State<CategoryPage> {
         ),
         leadingWidth: 100,
       ),
-
       body: ListView(
         children: [
           // All Categories
@@ -113,7 +109,6 @@ class _CategoryPageState extends State<CategoryPage> {
                       builder: (context) => const MealCollapsed(),
                     ),
                   );
-
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,

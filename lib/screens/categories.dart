@@ -188,11 +188,11 @@ class _CategoriesState extends State<Categories> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               ClipRRect(
+                                borderRadius: BorderRadius.circular(100),
                                 child: Image.network(
                                   store2[index].ImageURl,
                                   width: 60,
                                 ),
-                                borderRadius: BorderRadius.circular(100),
                               ),
                               SizedBox(height: 10),
                               Text(
